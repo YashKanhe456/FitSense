@@ -6,6 +6,16 @@ const normalizeUrl = (value) => {
     return value.trim().replace(/\/+$/, '');
 };
 
+const parseOrigin = (value) => {
+    try {
+        return new URL(normalizeUrl(value));
+    } catch (error) {
+        return null;
+    }
+};
+
+const isVercelHostname = (hostname) => hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+
 const getAllowedOrigins = () => {
     const origins = new Set([
         'http://localhost:5173',
@@ -21,6 +31,25 @@ const getAllowedOrigins = () => {
     }
 
     return [...origins];
+};
+
+const isAllowedOrigin = (origin, allowedOrigins = getAllowedOrigins()) => {
+    if (!origin) {
+        return true;
+    }
+
+    const normalizedOrigin = normalizeUrl(origin);
+
+    if (allowedOrigins.includes(normalizedOrigin)) {
+        return true;
+    }
+
+    const parsedOrigin = parseOrigin(normalizedOrigin);
+    if (!parsedOrigin || parsedOrigin.protocol !== 'https:') {
+        return false;
+    }
+
+    return isVercelHostname(parsedOrigin.hostname);
 };
 
 const isCloudinaryConfigured = () => (
@@ -52,6 +81,7 @@ const validateRuntimeEnv = () => {
 
 module.exports = {
     getAllowedOrigins,
+    isAllowedOrigin,
     isCloudinaryConfigured,
     normalizeUrl,
     validateRuntimeEnv

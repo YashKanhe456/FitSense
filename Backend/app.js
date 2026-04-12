@@ -5,7 +5,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
-const { getAllowedOrigins } = require('./utils/env');
+const { getAllowedOrigins, isAllowedOrigin } = require('./utils/env');
 
 const app = express();
 
@@ -22,7 +22,7 @@ const allowedOrigins = getAllowedOrigins();
 app.use(
     cors({
         origin(origin, callback) {
-            if (!origin || allowedOrigins.includes(origin)) {
+            if (isAllowedOrigin(origin, allowedOrigins)) {
                 return callback(null, true);
             }
 
