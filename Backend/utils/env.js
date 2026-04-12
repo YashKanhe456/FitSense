@@ -3,7 +3,7 @@ const normalizeUrl = (value) => {
         return '';
     }
 
-    return value.replace(/\/+$/, '');
+    return value.trim().replace(/\/+$/, '');
 };
 
 const getAllowedOrigins = () => {
