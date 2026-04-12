@@ -1,0 +1,7 @@
+{
+  "name": "pmw-root",
+  "private": true,
+  "scripts": {
+    "build": "npm install --prefix Frontend && npm run build --prefix Frontend"
+  }
+}

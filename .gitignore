@@ -10,6 +10,8 @@ Frontend/dist/
 .env.*.local
 Frontend/.env
 Backend/.env
+Backend/uploads/*
+!Backend/uploads/.gitkeep
 
 .DS_Store
 Thumbs.db
@@ -20,3 +22,5 @@ yarn-error.log*
 
 .vercel
 .render
+
+.vercel
