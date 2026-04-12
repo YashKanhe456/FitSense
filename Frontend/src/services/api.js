@@ -38,7 +38,7 @@ export const apiServices = {
   register: (payload) => API.post('/auth/register', payload),
   getMe: () => API.get('/auth/me'),
 
-  getProducts: (params = {}) => API.get('/products', { params }),
+  getProducts: (params = {}) => API.get('/products', { params: { sort: 'newest', ...params } }),
   getFeaturedProducts: (params = {}) => API.get('/products/featured', { params }),
   getProductById: (id) => API.get(`/products/${id}`),
   getRelatedProducts: (id) => API.get(`/products/${id}/related`),

@@ -23,7 +23,7 @@ function Home() {
   useEffect(() => {
     const loadHome = async () => {
       try {
-        const { data } = await apiServices.getProducts();
+        const { data } = await apiServices.getFeaturedProducts({ limit: 4 });
         setProducts(data.data || []);
       } catch (err) {
         setError(err.response?.data?.message || 'Unable to load products right now.');
@@ -35,7 +35,7 @@ function Home() {
     loadHome();
   }, []);
 
-  const featuredProducts = useMemo(() => products.filter((product) => product.isFeatured).slice(0, 4), [products]);
+  const featuredProducts = useMemo(() => products.slice(0, 4), [products]);
   const stats = useMemo(
     () => [
       { label: 'Curated SKUs', value: products.length || 12, icon: Shirt },
