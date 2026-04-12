@@ -125,7 +125,7 @@ const connectDB = async () => {
         console.log(`PostgreSQL connected: ${result.rows[0].database_name}`);
     } catch (error) {
         console.error(`PostgreSQL connection error: ${error.message}`);
-        process.exit(1);
+        throw error;
     }
 };
 
