@@ -45,6 +45,7 @@ export const apiServices = {
   createProduct: (payload) => API.post('/products', payload),
   updateProduct: (id, payload) => API.put(`/products/${id}`, payload),
   deleteProduct: (id) => API.delete(`/products/${id}`),
+  getUploadStatus: () => API.get('/upload/status'),
   uploadProductImage: (formData) =>
     API.post('/upload', formData, {
       headers: {

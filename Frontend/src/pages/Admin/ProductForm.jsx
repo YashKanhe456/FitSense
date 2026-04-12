@@ -32,6 +32,8 @@ function ProductForm() {
   const [formErrors, setFormErrors] = useState([]);
   const [previewImage, setPreviewImage] = useState('');
   const [imageSource, setImageSource] = useState('none');
+  const [fileUploadEnabled, setFileUploadEnabled] = useState(true);
+  const [uploadModeMessage, setUploadModeMessage] = useState('');
 
   useEffect(() => {
     if (!isEditMode) return;
@@ -62,6 +64,21 @@ function ProductForm() {
 
     loadProduct();
   }, [id, isEditMode]);
+
+  useEffect(() => {
+    const loadUploadStatus = async () => {
+      try {
+        const { data } = await apiServices.getUploadStatus();
+        setFileUploadEnabled(Boolean(data.data?.fileUploadEnabled));
+        setUploadModeMessage(data.data?.message || '');
+      } catch (err) {
+        setFileUploadEnabled(true);
+        setUploadModeMessage('');
+      }
+    };
+
+    loadUploadStatus();
+  }, []);
 
   const resolvedPreview = useMemo(() => resolveImage(previewImage || form.image), [form.image, previewImage]);
 
@@ -105,6 +122,14 @@ function ProductForm() {
     const selectedFile = event.target.files?.[0];
 
     if (!selectedFile) {
+      return;
+    }
+
+    if (!fileUploadEnabled) {
+      const message = uploadModeMessage || 'File uploads are not available right now. Please use an image URL.';
+      setFormErrors([message]);
+      toast.error(message);
+      event.target.value = '';
       return;
     }
 
@@ -271,7 +296,9 @@ function ProductForm() {
           <div className="admin-upload-panel__copy">
             <p className="section-kicker">Product Image</p>
             <h3>Upload from gallery or take a photo</h3>
-            <p>Use your device camera on mobile or choose an image file from your system. Upload completes before product save.</p>
+            <p>
+              {uploadModeMessage || 'Use your device camera on mobile or choose an image file from your system. Upload completes before product save.'}
+            </p>
           </div>
 
           <div className="admin-upload-panel__controls">
@@ -289,7 +316,7 @@ function ProductForm() {
                     type="file"
                     accept="image/*"
                     onChange={handleImageUpload}
-                    disabled={uploadingImage || imageSource === 'url'}
+                    disabled={uploadingImage || imageSource === 'url' || !fileUploadEnabled}
                   />
                 </label>
 
@@ -301,7 +328,7 @@ function ProductForm() {
                     accept="image/*"
                     capture="environment"
                     onChange={handleImageUpload}
-                    disabled={uploadingImage || imageSource === 'url'}
+                    disabled={uploadingImage || imageSource === 'url' || !fileUploadEnabled}
                   />
                 </label>
 

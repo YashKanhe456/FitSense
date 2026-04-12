@@ -65,20 +65,31 @@ const saveLocally = async (file, req) => {
     };
 };
 
+const saveAsDataUrl = async (file) => {
+    const dataUrl = `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
+
+    return {
+        path: dataUrl,
+        url: dataUrl,
+        filename: buildSafeFilename(file.originalname)
+    };
+};
+
 const uploadProductImage = asyncHandler(async (req, res) => {
     if (!req.file) {
         res.status(400);
         throw new Error('Please select an image to upload.');
     }
 
-    if (process.env.NODE_ENV === 'production' && !isCloudinaryConfigured()) {
-        res.status(500);
-        throw new Error('Image uploads require Cloudinary configuration in production.');
-    }
+    let uploadedFile;
 
-    const uploadedFile = isCloudinaryConfigured()
-        ? await uploadToCloudinary(req.file)
-        : await saveLocally(req.file, req);
+    if (isCloudinaryConfigured()) {
+        uploadedFile = await uploadToCloudinary(req.file);
+    } else if (process.env.NODE_ENV === 'production') {
+        uploadedFile = await saveAsDataUrl(req.file);
+    } else {
+        uploadedFile = await saveLocally(req.file, req);
+    }
 
     res.status(201).json({
         success: true,
@@ -91,4 +102,27 @@ const uploadProductImage = asyncHandler(async (req, res) => {
     });
 });
 
-module.exports = { uploadProductImage };
+const getUploadStatus = asyncHandler(async (req, res) => {
+    const usingCloudinary = isCloudinaryConfigured();
+    const fileUploadEnabled = true;
+    const mode = usingCloudinary
+        ? 'cloudinary'
+        : process.env.NODE_ENV === 'production'
+            ? 'inline'
+            : 'local';
+
+    res.json({
+        success: true,
+        data: {
+            fileUploadEnabled,
+            mode,
+            message: usingCloudinary
+                ? 'Photo uploads are available.'
+                : process.env.NODE_ENV === 'production'
+                    ? 'Photo uploads are available and will be stored directly with the product.'
+                    : 'Photo uploads are available.'
+        }
+    });
+});
+
+module.exports = { uploadProductImage, getUploadStatus };
