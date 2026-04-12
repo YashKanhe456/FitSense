@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Patil Mens Wear</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar (Simplified for Admin) -->
+    <nav class="navbar">
+        <div class="container" style="justify-content: space-between;">
+            <a href="index.html" class="logo">Patil Mens Wear <span style="font-size: 0.8rem; color: #fff;">|
+                    ADMIN</span></a>
+            <div class="nav-icons">
+                <a href="index.html" style="font-size: 0.9rem;">Logout <i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Container -->
+    <div class="admin-container">
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <ul class="admin-menu">
+                <li><a href="#" class="active"><i class="fas fa-tachometer-alt" style="width: 20px;"></i> Dashboard</a>
+                </li>
+                <li><a href="#"><i class="fas fa-box" style="width: 20px;"></i> Products</a></li>
+                <li><a href="#"><i class="fas fa-shopping-bag" style="width: 20px;"></i> Orders</a></li>
+                <li><a href="#"><i class="fas fa-users" style="width: 20px;"></i> Customers</a></li>
+                <li><a href="#"><i class="fas fa-cog" style="width: 20px;"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <h2 style="margin-bottom: 30px;">Dashboard Overview</h2>
+
+            <!-- Stats Cards -->
+            <div class="status-grid">
+                <div class="status-card">
+                    <h3>Total Sales</h3>
+                    <div class="status-number">₹1,24,000</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">+12% from last month</p>
+                </div>
+                <div class="status-card">
+                    <h3>Total Orders</h3>
+                    <div class="status-number">45</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">5 New today</p>
+                </div>
+                <div class="status-card">
+                    <h3>Total Products</h3>
+                    <div class="status-number">120</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">2 Low stock</p>
+                </div>
+                <div class="status-card">
+                    <h3>Customers</h3>
+                    <div class="status-number">350</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">+28 New this Month</p>
+                </div>
+            </div>
+
+            <!-- Recent Orders Table -->
+            <h3 style="margin-bottom: 20px;">Recent Orders</h3>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#ORD-001</td>
+                        <td>Rahul Sharma</td>
+                        <td>Oct 12, 2026</td>
+                        <td><span style="color: #4cd137;">Delivered</span></td>
+                        <td>₹4,500</td>
+                        <td><button class="btn btn-sm btn-outline">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-002</td>
+                        <td>Amit Verma</td>
+                        <td>Oct 11, 2026</td>
+                        <td><span style="color: var(--accent-gold);">Proccessing</span></td>
+                        <td>₹12,499</td>
+                        <td><button class="btn btn-sm btn-outline">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-003</td>
+                        <td>Priya Singh</td>
+                        <td>Oct 10, 2026</td>
+                        <td><span style="color: #ff4444;">Cancelled</span></td>
+                        <td>₹2,499</td>
+                        <td><button class="btn btn-sm btn-outline">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-004</td>
+                        <td>Vikram Patil</td>
+                        <td>Oct 09, 2026</td>
+                        <td><span style="color: #4cd137;">Delivered</span></td>
+                        <td>₹8,999</td>
+                        <td><button class="btn btn-sm btn-outline">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </main>
+    </div>
+
+</body>
+
+</html>

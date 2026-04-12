@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Patil Mens Wear</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Patil Mens Wear</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="cart.html" class="active"><i class="fas fa-shopping-cart"></i></a>
+                <a href="login.html"><i class="fas fa-user"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div style="background-color: #222; padding: 40px 0; text-align: center;">
+        <h1 style="margin: 0;">Your Shopping Cart</h1>
+    </div>
+
+    <!-- Cart Section -->
+    <div class="container cart-header">
+
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Item 1 -->
+                <tr>
+                    <td>
+                        <div class="cart-item-info">
+                            <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80"
+                                class="cart-item-img" alt="Kurta">
+                            <div>
+                                <p style="font-weight: bold; margin-bottom: 5px;">Gold Embroidered Kurta</p>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Size: M</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>₹2,499</td>
+                    <td><input type="number" class="qty-input" value="1" min="1" style="width: 50px; margin: 0;"></td>
+                    <td>₹2,499</td>
+                    <td><a href="#" style="color: #ff4444;"><i class="fas fa-trash"></i></a></td>
+                </tr>
+                <!-- Item 2 -->
+                <tr>
+                    <td>
+                        <div class="cart-item-info">
+                            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80"
+                                class="cart-item-img" alt="Sherwani">
+                            <div>
+                                <p style="font-weight: bold; margin-bottom: 5px;">Navy Blue Sherwani</p>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Size: L</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>₹8,999</td>
+                    <td><input type="number" class="qty-input" value="1" min="1" style="width: 50px; margin: 0;"></td>
+                    <td>₹8,999</td>
+                    <td><a href="#" style="color: #ff4444;"><i class="fas fa-trash"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+            <h3 style="margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">Cart
+                Totals</h3>
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span>₹11,498</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>Free</span>
+            </div>
+            <div class="summary-row summary-total">
+                <span>Total</span>
+                <span>₹11,498</span>
+            </div>
+            <button class="btn btn-block" style="margin-top: 20px;">Proceed to Checkout</button>
+            <a href="shop.html" class="btn btn-block btn-outline" style="margin-top: 10px;">Continue Shopping</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Patil Mens Wear</h3>
+                    <p>Defining men's ethnic fashion since 1990. Quality, tradition, and style in every stitch.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Mumbai</li>
+                        <li><i class="fas fa-envelope"></i> info@patilmenswear.com</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Patil Mens Wear. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
