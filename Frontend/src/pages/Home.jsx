@@ -5,6 +5,7 @@ import { apiServices } from '../services/api';
 import ProductCard from '../components/ProductCard';
 import StatePanel from '../components/StatePanel';
 import { CATEGORY_IMAGES } from '../assets';
+import heroImage from '../assets/20200429-malik-03.webp';
 
 const categoryCards = [
   { name: 'Shirts', blurb: 'Sharp staples for office hours, dinners, and Patil-level polish.' },
@@ -96,46 +97,13 @@ function Home() {
 
 
           <div className="hero-panel">
-            <div className="hero-panel__card">
-
-              {/* Monogram & rule */}
-              <div className="hero-panel__monogram-row">
-                <span className="hero-panel__monogram">PMW</span>
-                <span className="hero-panel__est">Est. 2024</span>
-              </div>
-              <div className="hero-panel__gold-rule" />
-
-              {/* Editorial headline */}
-              <h3 className="hero-panel__headline">
-                The art of Maharashtrian menswear - where heritage meets precision.
-              </h3>
-
-              {/* 3-column luxury brand promises */}
-              <div className="hero-panel__luxe-stats">
-                <div className="hero-panel__luxe-stat">
-                  <span className="hero-panel__stat-num">100%</span>
-                  <span className="hero-panel__stat-label">Premium Craft</span>
-                </div>
-                <div className="hero-panel__luxe-stat hero-panel__luxe-stat--center">
-                  <span className="hero-panel__stat-num">6+</span>
-                  <span className="hero-panel__stat-label">Collections</span>
-                </div>
-                <div className="hero-panel__luxe-stat">
-                  <span className="hero-panel__stat-num">Infinity</span>
-                  <span className="hero-panel__stat-label">Confidence</span>
-                </div>
-              </div>
-
-              <div className="hero-panel__gold-rule hero-panel__gold-rule--faded" />
-
-              {/* Pull-quote */}
-              <div className="hero-panel__quote-block">
-                <span className="hero-panel__quote-mark">&quot;</span>
-                <p className="hero-panel__quote">
-                  Worn with pride. Crafted with purpose. Every piece is a statement of who we are.
-                </p>
-              </div>
-
+            <div className="hero-panel__image-wrapper">
+              <img 
+                src={heroImage} 
+                alt="Patil Mens Wear Premium Collection" 
+                className="hero-panel__image" 
+              />
+              <div className="hero-panel__image-overlay" />
             </div>
           </div>
         </div>

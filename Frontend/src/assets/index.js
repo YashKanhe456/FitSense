@@ -2,7 +2,6 @@ import shirtCategory from './categories/cat_shirt.jpg';
 import tshirtCategory from './categories/cat_tshirt.jpg';
 import pantsCategory from './categories/cat_pants.jpg';
 import formalCategory from './categories/cat_nehru.jpg';
-import casualCategory from './categories/cat_kurta.jpg';
 
 import blazerNavy from './products/blazer_navy.jpg';
 import indoWestern from './products/indo_western.jpg';
@@ -23,7 +22,7 @@ export const CATEGORY_IMAGES = {
   Jeans: jeansDark,
   Pants: pantsCategory,
   'Formal Wear': formalCategory,
-  'Casual Wear': casualCategory
+  'Casual Wear': shirtCheck
 };
 
 export const PRODUCT_IMAGES = {

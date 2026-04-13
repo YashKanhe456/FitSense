@@ -27,11 +27,11 @@ export function AdminRoute() {
   }
 
   if (!user) {
-    return <Navigate to="/login" replace state={{ from: location, adminOnly: true }} />;
+    return <Navigate to="/admin/login" replace state={{ from: location }} />;
   }
 
   if (user.role !== 'admin') {
-    return <Navigate to="/login" replace state={{ from: location, adminOnly: true, forceRelogin: true }} />;
+    return <Navigate to="/admin/login" replace state={{ from: location, forceRelogin: true }} />;
   }
 
   return <Outlet />;

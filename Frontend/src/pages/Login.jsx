@@ -6,24 +6,17 @@ import { useAuth } from '../context/AuthContext';
 function Login() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { login, user, logout } = useAuth();
+  const { login, user } = useAuth();
   const [form, setForm] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
 
   const redirectTo = location.state?.from?.pathname || '/';
-  const adminOnly = Boolean(location.state?.adminOnly);
-  const forceRelogin = Boolean(location.state?.forceRelogin);
 
   useEffect(() => {
-    if (forceRelogin && user && user.role !== 'admin') {
-      logout();
-      return;
-    }
-
-    if (user && (!adminOnly || user.role === 'admin')) {
+    if (user && user.role !== 'admin') {
       navigate(redirectTo, { replace: true });
     }
-  }, [adminOnly, forceRelogin, logout, navigate, redirectTo, user]);
+  }, [navigate, redirectTo, user]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -43,13 +36,9 @@ function Login() {
   return (
     <section className="auth-section">
       <div className="auth-card">
-        <p className="section-kicker">{adminOnly ? 'Admin Access' : 'Welcome back'}</p>
-        <h1>{adminOnly ? 'Login to open the admin dashboard' : 'Login to continue shopping'}</h1>
-        <p>
-          {adminOnly
-            ? 'Use an admin account to access products, orders, customers, and dashboard controls.'
-            : 'Access checkout, orders, and your account details securely.'}
-        </p>
+        <p className="section-kicker">Welcome back</p>
+        <h1>Login to continue shopping</h1>
+        <p>Access checkout, orders, and your account details securely.</p>
 
         <form className="auth-form" onSubmit={handleSubmit}>
           <label>
@@ -71,7 +60,7 @@ function Login() {
               name="password"
               value={form.password}
               onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
-              autoComplete={adminOnly ? 'current-password' : 'current-password'}
+              autoComplete="current-password"
               required
             />
           </label>
@@ -82,6 +71,9 @@ function Login() {
 
         <p className="auth-helper">
           Don&apos;t have an account? <Link to="/register">Create one here</Link>
+        </p>
+        <p className="auth-helper auth-helper--secondary">
+          Admin team? <Link to="/admin/login">Use the admin login</Link>
         </p>
       </div>
     </section>

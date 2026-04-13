@@ -125,7 +125,7 @@ function Navbar() {
           ) : (
             <div className="site-auth-links">
               <Link to="/login" className="ghost-button icon-button"><User2 size={18} />Login</Link>
-              <Link to="/admin" className="ghost-button">Admin Login</Link>
+              {/*        <Link to="/admin/login" className="ghost-button">Admin Login</Link> */}
               <Link to="/register" className="primary-button small-button">Register</Link>
             </div>
           )}
@@ -192,7 +192,6 @@ function Navbar() {
             <>
               <Link to="/login" className="primary-button" onClick={closeMenu}>Login</Link>
               <Link to="/register" className="ghost-button" onClick={closeMenu}>Register</Link>
-              <Link to="/admin" className="ghost-button" onClick={closeMenu}>Admin Login</Link>
             </>
           )}
         </div>
