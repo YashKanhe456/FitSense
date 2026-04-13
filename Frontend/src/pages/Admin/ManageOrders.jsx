@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { RefreshCw } from 'lucide-react';
+import { resolveImage } from '../../assets';
 import StatePanel from '../../components/StatePanel';
 import { apiServices } from '../../services/api';
 import { formatCurrency } from '../../utils/storefront';
@@ -164,7 +165,7 @@ function ManageOrders() {
 
               {expandedOrderId === order._id ? (
                 <div className="admin-order-card__details">
-                  <div>
+                  <div className="admin-order-card__detail-block">
                     <strong>Shipping address</strong>
                     <p>
                       {order.shippingAddress.fullName}, {order.shippingAddress.phone}
@@ -173,16 +174,49 @@ function ManageOrders() {
                       {order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.state} {order.shippingAddress.pincode}
                     </p>
                   </div>
-                  <div>
+                  <div className="admin-order-card__detail-block">
+                    <strong>Order summary</strong>
+                    <div className="admin-order-card__summary-grid">
+                      <div>
+                        <span>Items total</span>
+                        <strong>{formatCurrency(order.itemsPrice)}</strong>
+                      </div>
+                      <div>
+                        <span>Shipping</span>
+                        <strong>{formatCurrency(order.shippingPrice)}</strong>
+                      </div>
+                      <div>
+                        <span>Grand total</span>
+                        <strong>{formatCurrency(order.totalPrice)}</strong>
+                      </div>
+                      <div>
+                        <span>Payment state</span>
+                        <strong>{order.isPaid ? 'Paid' : 'Pending'}</strong>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="admin-order-card__detail-block">
                     <strong>Items</strong>
-                    <div className="stacked-list">
+                    <div className="admin-order-card__item-list">
                       {order.orderItems.map((item) => (
-                        <div key={`${order._id}-${item.product}-${item.size}`} className="stacked-row">
-                          <div>
+                        <div key={`${order._id}-${item.product}-${item.size}`} className="admin-order-card__item">
+                          <img
+                            src={resolveImage(item.image)}
+                            alt={item.name}
+                            className="admin-order-card__item-image"
+                            loading="lazy"
+                            width="96"
+                            height="96"
+                          />
+                          <div className="admin-order-card__item-copy">
                             <strong>{item.name}</strong>
-                            <p>{item.size ? `Size ${item.size}` : 'Standard'} - Qty {item.quantity}</p>
+                            <p>{item.size ? `Size ${item.size}` : 'Standard size'}</p>
+                            <p>Qty {item.quantity}</p>
                           </div>
-                          <span>{formatCurrency(item.price * item.quantity)}</span>
+                          <div className="admin-order-card__item-pricing">
+                            <span>{formatCurrency(item.price)} each</span>
+                            <strong>{formatCurrency(item.price * item.quantity)}</strong>
+                          </div>
                         </div>
                       ))}
                     </div>
