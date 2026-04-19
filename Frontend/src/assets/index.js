@@ -14,7 +14,7 @@ import shirtCheck from './products/shirt_check.jpg';
 import shirtWhite from './products/shirt_white.jpg';
 import tshirtWhite from './products/tshirt_white.jpg';
 
-export const PLACEHOLDER_IMAGE = 'https://placehold.co/720x900/f4efe6/1e1b18?text=Patil+Mens+Wear';
+export const PLACEHOLDER_IMAGE = 'https://placehold.co/720x900/f4efe6/1e1b18?text=FitSense';
 
 export const CATEGORY_IMAGES = {
   Shirts: shirtCategory,

@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { apiServices } from '../services/api';
 
-const STORAGE_KEY = 'patilMensWearUser';
+const STORAGE_KEY = 'fitsenseUser';
 const AuthContext = createContext(null);
 
 export const useAuth = () => useContext(AuthContext);

@@ -67,7 +67,7 @@ const initializeDatabase = async () => {
             stock INTEGER NOT NULL DEFAULT 0 CHECK (stock >= 0),
             is_featured BOOLEAN NOT NULL DEFAULT FALSE,
             sizes TEXT[] NOT NULL DEFAULT '{}',
-            brand TEXT NOT NULL DEFAULT 'Patil Mens Wear',
+            brand TEXT NOT NULL DEFAULT 'FitSense',
             created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
             updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
         )

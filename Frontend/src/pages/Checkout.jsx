@@ -111,7 +111,7 @@ function Checkout() {
       clearCart();
       clearCheckoutDraft();
       sessionStorage.setItem(
-        'patilMensWearLastOrder',
+      'fitsenseLastOrder',
         JSON.stringify({
           orderId: data.data._id,
           totalPrice: data.data.totalPrice

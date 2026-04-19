@@ -19,7 +19,7 @@ const buildSafeFilename = (originalName = 'upload') => {
 
 const uploadToCloudinary = async (file) => {
     const timestamp = Math.floor(Date.now() / 1000);
-    const folder = process.env.CLOUDINARY_FOLDER || 'patil-mens-wear';
+    const folder = process.env.CLOUDINARY_FOLDER || 'fitsense';
     const signaturePayload = `folder=${folder}&timestamp=${timestamp}${process.env.CLOUDINARY_API_SECRET}`;
     const signature = crypto.createHash('sha1').update(signaturePayload).digest('hex');
     const formData = new FormData();

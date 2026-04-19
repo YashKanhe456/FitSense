@@ -30,7 +30,7 @@ function AdminLayout() {
         >
           {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
-        <span className="admin-mobile-bar__title">Patil Mens Wear - Admin</span>
+        <span className="admin-mobile-bar__title">FitSense - Admin</span>
       </div>
 
       {/* Overlay */}
@@ -41,7 +41,7 @@ function AdminLayout() {
       <aside className={`admin-sidebar ${sidebarOpen ? 'is-open' : ''}`}>
         <div>
           <p className="admin-sidebar__eyebrow">Admin Panel</p>
-          <h1>Patil Mens Wear</h1>
+          <h1>FitSense</h1>
           <p className="admin-sidebar__meta">Signed in as {user?.name || 'Administrator'}</p>
           <div className="admin-sidebar__card">
             <strong>{firstName}, your control room is live.</strong>

@@ -1,9 +1,9 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { FREE_SHIPPING_THRESHOLD, STANDARD_SHIPPING_FEE } from '../utils/storefront';
 
-const STORAGE_KEY = 'patilMensWearCart';
-const WISHLIST_STORAGE_KEY = 'patilMensWearWishlist';
-const CHECKOUT_STORAGE_KEY = 'patilMensWearCheckoutDraft';
+const STORAGE_KEY = 'fitsenseCart';
+const WISHLIST_STORAGE_KEY = 'fitsenseWishlist';
+const CHECKOUT_STORAGE_KEY = 'fitsenseCheckoutDraft';
 const CartContext = createContext(null);
 
 const makeItemKey = (productId, size) => `${productId}::${size || 'nosize'}`;

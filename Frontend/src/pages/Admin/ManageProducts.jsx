@@ -145,7 +145,7 @@ function ManageProducts() {
                       <img src={resolveImage(product.image)} alt={product.name} />
                       <div>
                         <strong>{product.name}</strong>
-                        <p>{product.brand || 'Patil Mens Wear'}</p>
+                      <p>{product.brand || 'FitSense'}</p>
                       </div>
                     </div>
                   </td>

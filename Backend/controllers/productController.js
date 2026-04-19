@@ -4,7 +4,7 @@ const { mapProduct } = require('../utils/serializers');
 
 const normalizeProductPayload = (payload) => ({
     ...payload,
-    brand: payload.brand?.trim() || 'Patil Mens Wear',
+    brand: payload.brand?.trim() || 'FitSense',
     sizes: Array.isArray(payload.sizes) ? payload.sizes.map((size) => size.trim()).filter(Boolean) : [],
     image: payload.image || payload.imageUrl
 });

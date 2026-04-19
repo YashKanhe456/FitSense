@@ -57,7 +57,7 @@ app.use(
 app.get('/api/health', (req, res) => {
     res.status(200).json({
         success: true,
-        message: 'Patil Mens Wear API is running',
+        message: 'FitSense API is running',
         environment: process.env.NODE_ENV || 'development',
         timestamp: new Date().toISOString()
     });
@@ -80,7 +80,7 @@ if (process.env.NODE_ENV === 'production') {
     app.get('/', (req, res) => {
         res.json({
             success: true,
-            message: 'Patil Mens Wear API - Development Mode',
+            message: 'FitSense API - Development Mode',
             docs: 'Frontend dev server: http://localhost:5173',
             health: '/api/health'
         });

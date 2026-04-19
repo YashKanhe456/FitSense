@@ -6,8 +6,8 @@ function Footer() {
     <footer className="site-footer">
       <div className="container site-footer__grid">
         <div>
-          <p className="footer-eyebrow">Patil Mens Wear</p>
-          <h3>Premium menswear shopping with clean browsing, ordering, and admin management.</h3>
+          <p className="footer-eyebrow">FitSense</p>
+          <h3>A polished storefront with clean browsing, ordering, and admin management.</h3>
           <p>
             Premium casual and formal essentials for daily wear, festive looks, and a polished shopping experience.
           </p>
@@ -26,12 +26,12 @@ function Footer() {
         <div>
           <p className="footer-eyebrow">Support</p>
           <p>Mumbai, Maharashtra</p>
-          <p>support@patilmenswear.com</p>
+          <p>support@fitsense.com</p>
           <p>Cash on Delivery available on eligible orders.</p>
         </div>
       </div>
       <div className="container site-footer__bottom">
-        <span>Copyright {new Date().getFullYear()} Patil Mens Wear</span>
+        <span>Copyright {new Date().getFullYear()} FitSense</span>
         <span>Built with React, Express, PostgreSQL, and clean role-based flows.</span>
       </div>
     </footer>

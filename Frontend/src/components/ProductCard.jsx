@@ -33,7 +33,7 @@ function ProductCard({ product }) {
         <div className="product-card__footer">
           <div>
             <strong className="product-card__price">Rs. {Number(product.price).toLocaleString('en-IN')}</strong>
-            <span className="product-card__brand">{product.brand || 'Patil Mens Wear'}</span>
+            <span className="product-card__brand">{product.brand || 'FitSense'}</span>
           </div>
 
           <Link to={`/product/${productId}`} className="ghost-button icon-button">

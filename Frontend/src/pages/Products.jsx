@@ -70,7 +70,7 @@ function Products() {
     if (selectedCategory !== 'All') {
       return `Browsing ${selectedCategory}`;
     }
-    return 'Browse the complete Patil Mens Wear catalog';
+    return 'Browse the complete FitSense catalog';
   }, [searchTerm, selectedCategory]);
 
   const updateFilters = (category, search) => {

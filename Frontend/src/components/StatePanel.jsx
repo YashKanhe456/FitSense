@@ -4,7 +4,7 @@ function StatePanel({ title, description, action }) {
   return (
     <section className="state-panel">
       <div className="state-panel__card">
-        <p className="section-kicker">Patil Mens Wear</p>
+        <p className="section-kicker">FitSense</p>
         <h2>{title}</h2>
         {description ? <p>{description}</p> : null}
         {action ? <div className="state-panel__action">{action}</div> : null}

@@ -8,7 +8,7 @@ import { CATEGORY_IMAGES } from '../assets';
 import heroImage from '../assets/20200429-malik-03.webp';
 
 const categoryCards = [
-  { name: 'Shirts', blurb: 'Sharp staples for office hours, dinners, and Patil-level polish.' },
+  { name: 'Shirts', blurb: 'Sharp staples for office hours, dinners, and a polished FitSense finish.' },
   { name: 'T-Shirts', blurb: 'Easy essentials with a clean fit and youthful confidence.' },
   { name: 'Jeans', blurb: 'Reliable denim built for repeat wear, college days, and city plans.' },
   { name: 'Pants', blurb: 'Tailored chinos and trousers for a smarter everyday look.' },
@@ -49,7 +49,7 @@ function Home() {
     () => [
       {
         eyebrow: 'Everyday swagger',
-        title: 'Smart shirts, chinos, and easy layers for everyday confidence with a Patil touch.',
+        title: 'Smart shirts, chinos, and easy layers for everyday confidence with a FitSense touch.',
         cta: '/products?category=Shirts'
       },
       {
@@ -66,13 +66,12 @@ function Home() {
       <section className="hero-section">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="section-kicker">Patil style for the modern gentleman</p>
+            <p className="section-kicker">FitSense style for the modern shopper</p>
             <p className="hero-copy__tag">Aapli style. Premium fit.</p>
-            <h1>Traditional roots. Modern swagger. Built for the confident Patil generation.</h1>
+            <h1>Clean style. Modern confidence. Built for the FitSense generation.</h1>
             <p className="hero-copy__lede">
-              Patil Mens Wear brings together Maharashtrian pride, premium tailoring, and everyday-ready menswear for
-              men who carry culture with confidence. From festive statements to daily drip, every fit is designed to
-              feel sharp, local, and modern.
+              FitSense brings together premium style, clean presentation, and everyday-ready shopping for customers who
+              want a modern storefront that feels sharp, confident, and easy to use.
             </p>
             <div className="hero-actions">
               <Link to="/products" className="primary-button">
@@ -100,7 +99,7 @@ function Home() {
             <div className="hero-panel__image-wrapper">
               <img 
                 src={heroImage} 
-                alt="Patil Mens Wear Premium Collection" 
+                alt="FitSense premium collection" 
                 className="hero-panel__image" 
               />
               <div className="hero-panel__image-overlay" />
@@ -137,7 +136,7 @@ function Home() {
         <div className="container">
           <div className="section-heading section-heading--inline">
             <div>
-              <p className="section-kicker">Patil picks</p>
+              <p className="section-kicker">FitSense picks</p>
               <h2>Trending fits with premium energy and everyday confidence</h2>
             </div>
             <Link to="/products" className="ghost-button">

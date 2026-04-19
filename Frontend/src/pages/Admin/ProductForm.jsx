@@ -17,7 +17,7 @@ const defaultForm = {
   stock: '',
   isFeatured: false,
   sizes: 'S, M, L',
-  brand: 'Patil Mens Wear'
+  brand: 'FitSense'
 };
 
 function ProductForm() {
@@ -51,7 +51,7 @@ function ProductForm() {
           stock: String(product.stock),
           isFeatured: Boolean(product.isFeatured),
           sizes: product.sizes?.join(', ') || '',
-          brand: product.brand || 'Patil Mens Wear'
+          brand: product.brand || 'FitSense'
         });
         setPreviewImage(product.image);
         setImageSource(product.image ? 'url' : 'none');

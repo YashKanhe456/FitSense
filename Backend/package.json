@@ -1,7 +1,7 @@
 {
-  "name": "patil-mens-wear-backend",
+  "name": "fitsense-backend",
   "version": "1.0.0",
-  "description": "Patil Mens Wear MERN e-commerce backend API",
+  "description": "FitSense backend API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -16,7 +16,7 @@
     "mern",
     "menswear"
   ],
-  "author": "Patil Mens Wear",
+  "author": "FitSense",
   "license": "ISC",
   "type": "commonjs",
   "engines": {

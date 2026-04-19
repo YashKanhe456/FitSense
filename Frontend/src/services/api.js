@@ -6,7 +6,7 @@ const API = axios.create({
 });
 
 API.interceptors.request.use((config) => {
-  const storedUser = localStorage.getItem('patilMensWearUser');
+  const storedUser = localStorage.getItem('fitsenseUser');
 
   if (storedUser) {
     try {
@@ -15,7 +15,7 @@ API.interceptors.request.use((config) => {
         config.headers.Authorization = `Bearer ${parsedUser.token}`;
       }
     } catch (error) {
-      localStorage.removeItem('patilMensWearUser');
+      localStorage.removeItem('fitsenseUser');
     }
   }
 

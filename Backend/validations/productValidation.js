@@ -7,7 +7,7 @@ const createProductSchema = Joi.object({
     name: Joi.string().trim().min(3).required(),
     description: Joi.string().trim().min(20).required(),
     category: Joi.string().valid(...PRODUCT_CATEGORIES).required(),
-    brand: Joi.string().trim().allow('').default('Patil Mens Wear'),
+    brand: Joi.string().trim().allow('').default('FitSense'),
     price: Joi.number().min(0).required(),
     image: Joi.string().trim().required(),
     stock: Joi.number().integer().min(0).required(),

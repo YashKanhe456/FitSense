@@ -1,66 +1,26 @@
-# Patil Mens Wear
+# FitSense
 
-Patil Mens Wear is a full-stack e-commerce project for men&apos;s fashion built with:
-
-- React + Vite frontend
-- Node.js + Express backend
-- PostgreSQL
-- JWT authentication
-- LocalStorage cart
-- COD checkout
-- Role-based admin dashboard
-- Cloudinary-ready product image uploads for production
+FitSense is a full-stack e-commerce application with a React frontend, Express backend, PostgreSQL database, JWT authentication, admin dashboard, product management, order management, and local/Cloudinary-ready image uploads.
 
 ## Project Structure
 
 ```text
-Fullstack/
+FitSense/
   Backend/
   Frontend/
   vercel.json
 ```
 
-## Local Run
+## Tech Stack
 
-### 1. Backend
+- Frontend: React, Vite, Axios, React Router
+- Backend: Node.js, Express
+- Database: PostgreSQL
+- Authentication: JWT + bcryptjs
+- Validation: Joi
+- Uploads: Multer + Cloudinary-ready configuration
 
-```powershell
-cd Backend
-npm install
-npm run dev
-```
-
-Backend default URL:
-
-`http://localhost:5000`
-
-### 2. Frontend
-
-```powershell
-cd Frontend
-npm install
-npm run dev
-```
-
-Frontend default URL:
-
-`http://localhost:5173`
-
-## Demo Admin Account
-
-After seeding:
-
-- Email: `admin@patilmenswear.com`
-- Password: `Admin@1234`
-
-Seed command:
-
-```powershell
-cd Backend
-npm run seed
-```
-
-## Environment Files
+## Environment Setup
 
 ### Backend
 
@@ -83,60 +43,75 @@ Copy `Frontend/.env.example` to `Frontend/.env` and set:
 
 - `VITE_API_URL`
 
-## Production Build
+## Local Development
 
-### Frontend build
+### 1. Start Backend
+
+```powershell
+cd Backend
+npm install
+npm run seed
+npm run dev
+```
+
+Backend runs on:
+
+`http://localhost:5001`
+
+### 2. Start Frontend
 
 ```powershell
 cd Frontend
-npm run build
+npm install
+npm run dev
 ```
 
-### Backend entrypoints
+Frontend runs on:
 
-- `Backend/server.js` for local/Render style startup
-- `Backend/api/index.js` for serverless/Vercel style deployment
+`http://localhost:5173`
 
-## Vercel Deployment
+## Demo Admin Account
 
-This repo is configured for a single Vercel deployment using:
+After seeding:
 
-- Static frontend from `Frontend/`
-- Serverless API from `Backend/api/index.js`
-- Route rewrites from `vercel.json`
+- Email: `admin@fitsense.com`
+- Password: `Admin@1234`
 
-### Production Environment Variables
+## Database Setup
 
-Set these in Vercel before launching:
+This project uses PostgreSQL with raw SQL via the `pg` driver.
 
-- `POSTGRES_URL`
-- `JWT_SECRET`
-- `JWT_EXPIRES_IN`
-- `FRONTEND_URL`
-- `CLOUDINARY_CLOUD_NAME`
-- `CLOUDINARY_API_KEY`
-- `CLOUDINARY_API_SECRET`
-- `CLOUDINARY_FOLDER`
+- On backend startup, the app automatically creates the required tables and indexes if they do not exist.
+- For a fresh setup, create an empty PostgreSQL database, update `POSTGRES_URL`, then run:
 
-### Suggested Production Values
+```powershell
+cd Backend
+npm run seed
+```
 
-- `JWT_EXPIRES_IN=30d`
-- `CLOUDINARY_FOLDER=patil-mens-wear`
-- `FRONTEND_URL=https://your-production-domain.vercel.app`
+## Main Features
 
-### Launch Checklist
+- User registration and login
+- Product listing, search, and filters
+- Product details and related products
+- Cart and checkout flow
+- Order history for customers
+- Admin dashboard with revenue and order metrics
+- Product create/update/delete
+- Order status management
+- Customer listing and metrics
+- Product image upload support
 
-1. Create a Cloudinary account and copy the three credentials into Vercel env vars.
-2. Set a strong `JWT_SECRET` that is at least 32 characters long.
-3. Set `POSTGRES_URL` to the production Neon/Postgres connection string.
-4. Deploy to Vercel.
-5. Open `/api/health` on the deployed domain and confirm it responds successfully.
-6. Log in to the admin panel and test one real product image upload.
-7. Create a test order and confirm products, cart, checkout, and orders work end to end.
+## Deployment Notes
+
+The repo includes `vercel.json` for Vercel deployment using:
+
+- Static frontend build from `Frontend/dist`
+- Serverless backend entrypoint from `Backend/api/index.js`
 
 ## Important Notes
 
 - Do not commit real `.env` files
-- Do not commit your database or Cloudinary secrets
-- Product image uploads require Cloudinary in production
-- The backend now validates env vars on startup and will reject weak production JWT secrets
+- Do not commit database credentials or Cloudinary secrets
+- Do not commit `node_modules` or generated build output
+- Local uploads are stored in `Backend/uploads` during development

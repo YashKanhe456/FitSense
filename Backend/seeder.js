@@ -7,7 +7,7 @@ const products = [
         name: 'Premium Oxford White Shirt',
         description: 'A crisp premium cotton Oxford shirt tailored for office meetings, polished dinners, and easy everyday layering.',
         category: 'Shirts',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 1299,
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         stock: 45,
@@ -18,7 +18,7 @@ const products = [
         name: 'Casual Linen Check Shirt',
         description: 'A breathable linen-blend check shirt built for weekend plans, travel days, and smart casual styling.',
         category: 'Casual Wear',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 1149,
         sizes: ['S', 'M', 'L', 'XL'],
         stock: 20,
@@ -29,7 +29,7 @@ const products = [
         name: 'Classic White Crew-Neck T-Shirt',
         description: 'A heavyweight crew-neck tee with a clean finish, soft hand feel, and an easy fit that works with jeans or chinos.',
         category: 'T-Shirts',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 499,
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         stock: 100,
@@ -40,7 +40,7 @@ const products = [
         name: 'Weekend Relaxed Fit Tee',
         description: 'An easy relaxed-fit T-shirt designed for off-duty comfort with a modern drape and breathable cotton jersey.',
         category: 'Casual Wear',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 649,
         sizes: ['S', 'M', 'L', 'XL'],
         stock: 80,
@@ -51,7 +51,7 @@ const products = [
         name: 'Classic Slim Chino Pants',
         description: 'Stretch chino pants with a clean taper, all-day comfort, and the versatility to move from work to dinner.',
         category: 'Pants',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 1599,
         sizes: ['28', '30', '32', '34', '36'],
         stock: 40,
@@ -62,7 +62,7 @@ const products = [
         name: 'Dark Indigo Slim Fit Jeans',
         description: 'Premium stretch denim in a deep indigo wash for a smarter jeans look that still feels easy to wear.',
         category: 'Jeans',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 1799,
         sizes: ['28', '30', '32', '34', '36'],
         stock: 55,
@@ -73,7 +73,7 @@ const products = [
         name: 'Light Wash Straight Jeans',
         description: 'Relaxed straight-fit jeans in a light wash with a laid-back finish that pairs perfectly with tees and overshirts.',
         category: 'Jeans',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 1499,
         sizes: ['30', '32', '34'],
         stock: 30,
@@ -84,7 +84,7 @@ const products = [
         name: 'Navy Blue Formal Blazer',
         description: 'A sharp single-breasted blazer cut in a rich navy tone for presentations, weddings, and formal evenings.',
         category: 'Formal Wear',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 4999,
         sizes: ['38', '40', '42'],
         stock: 18,
@@ -95,7 +95,7 @@ const products = [
         name: 'Emerald Occasion Bandhgala',
         description: 'A rich structured occasion jacket that brings a premium formal edge to festive dinners and engagement events.',
         category: 'Formal Wear',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 6299,
         sizes: ['M', 'L', 'XL'],
         stock: 12,
@@ -106,7 +106,7 @@ const products = [
         name: 'Classic Charcoal Evening Suit',
         description: 'A sleek formalwear option for stage presentations, ceremonies, and important events where a polished impression matters.',
         category: 'Formal Wear',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 8999,
         sizes: ['38', '40', '42'],
         stock: 9,
@@ -117,7 +117,7 @@ const products = [
         name: 'Modern Smart Casual Overshirt',
         description: 'A polished overshirt-inspired layer made for travel days, casual Fridays, and minimalist modern styling.',
         category: 'Casual Wear',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 2199,
         sizes: ['M', 'L', 'XL'],
         stock: 15,
@@ -128,7 +128,7 @@ const products = [
         name: 'Signature Celebration Jacket',
         description: 'A statement festive jacket with premium detailing for college presentations, ceremonies, and special family events.',
         category: 'Formal Wear',
-        brand: 'Patil Mens Wear',
+        brand: 'FitSense',
         price: 7599,
         sizes: ['S', 'M', 'L'],
         stock: 8,
@@ -151,7 +151,7 @@ const importData = async () => {
                 `INSERT INTO users (name, email, password, role)
                  VALUES ($1, $2, $3, $4)
                  RETURNING email`,
-                ['Patil Admin', 'admin@patilmenswear.com', hashedPassword, 'admin']
+                ['FitSense Admin', 'admin@fitsense.com', hashedPassword, 'admin']
             );
             console.log(`Admin created: ${adminResult.rows[0].email}`);
 
@@ -177,7 +177,7 @@ const importData = async () => {
         const productCount = await query('SELECT COUNT(*)::int AS count FROM products');
         console.log(`${productCount.rows[0].count} demo products seeded`);
         console.log('\nDatabase seeded successfully');
-        console.log('Admin: admin@patilmenswear.com');
+        console.log('Admin: admin@fitsense.com');
         console.log('Password: Admin@1234\n');
         await closeDB();
         process.exit(0);

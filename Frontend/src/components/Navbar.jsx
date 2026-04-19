@@ -78,16 +78,9 @@ function Navbar() {
     <header className="site-header">
       <div className="container site-header__bar">
         <Link to="/" className="site-logo" onClick={closeMenu}>
-          <img
-            src="/patil-logo.jpeg"
-            alt="Patil Mens Wear"
-            className="site-logo__image"
-            width="200"
-            height="80"
-          />
           <span className="site-logo__copy">
             <span className="site-logo__eyebrow">Men&apos;s Fashion</span>
-            <span className="site-logo__title">Patil Mens Wear</span>
+            <span className="site-logo__title">FitSense</span>
           </span>
         </Link>
 

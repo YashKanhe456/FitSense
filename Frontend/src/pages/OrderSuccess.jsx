@@ -6,7 +6,7 @@ function OrderSuccess() {
   const location = useLocation();
   const fallbackOrder = (() => {
     try {
-      const storedValue = sessionStorage.getItem('patilMensWearLastOrder');
+      const storedValue = sessionStorage.getItem('fitsenseLastOrder');
       return storedValue ? JSON.parse(storedValue) : null;
     } catch (error) {
       return null;
@@ -24,7 +24,7 @@ function OrderSuccess() {
       <div className="state-panel__card success-card">
         <CheckCircle2 size={64} />
         <p className="section-kicker">Order confirmed</p>
-        <h1>Thank you for shopping with Patil Mens Wear</h1>
+        <h1>Thank you for shopping with FitSense</h1>
         <p>Your order has been created successfully and the cart was cleared only after confirmation.</p>
         <div className="success-card__meta">
           <span>Order ID: {orderId}</span>
