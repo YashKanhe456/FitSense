@@ -5,6 +5,7 @@ const { mapOrder, mapProduct } = require('../utils/serializers');
 const DASHBOARD_MONTHS = 6;
 const RECENT_ORDER_LIMIT = 6;
 const LOW_STOCK_LIMIT = 6;
+const LOW_STOCK_THRESHOLD = 5;
 const TOP_PRODUCT_LIMIT = 5;
 const TOP_CUSTOMER_LIMIT = 5;
 
@@ -36,6 +37,7 @@ const getDashboardStats = asyncHandler(async (req, res) => {
         processingOrders,
         deliveredOrders,
         cancelledOrders,
+        lowStockCount,
         lowStockProducts,
         recentOrders,
         revenueAgg,
@@ -53,8 +55,12 @@ const getDashboardStats = asyncHandler(async (req, res) => {
         query(`SELECT COUNT(*)::int AS count FROM orders WHERE order_status = 'Delivered'`),
         query(`SELECT COUNT(*)::int AS count FROM orders WHERE order_status = 'Cancelled'`),
         query(
-            'SELECT * FROM products WHERE stock <= 5 ORDER BY stock ASC, updated_at DESC LIMIT $1',
-            [LOW_STOCK_LIMIT]
+            'SELECT COUNT(*)::int AS count FROM products WHERE stock <= $1',
+            [LOW_STOCK_THRESHOLD]
+        ),
+        query(
+            'SELECT * FROM products WHERE stock <= $1 ORDER BY stock ASC, updated_at DESC LIMIT $2',
+            [LOW_STOCK_THRESHOLD, LOW_STOCK_LIMIT]
         ),
         query(
             `SELECT o.*, u.id AS user_ref_id, u.name AS user_name, u.email AS user_email
@@ -165,7 +171,7 @@ const getDashboardStats = asyncHandler(async (req, res) => {
                 processingOrders: processingOrders.rows[0].count,
                 deliveredOrders: deliveredOrders.rows[0].count,
                 cancelledOrders: cancelledOrders.rows[0].count,
-                lowStockCount: lowStockProducts.rows.length,
+                lowStockCount: lowStockCount.rows[0].count,
                 totalRevenue: Number(revenueAgg.rows[0]?.revenue || 0),
                 deliveredRevenue: Number(deliveredRevenueAgg.rows[0]?.revenue || 0)
             },

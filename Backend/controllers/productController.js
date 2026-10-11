@@ -76,7 +76,12 @@ const getProducts = asyncHandler(async (req, res) => {
         .map(([key, direction]) => `${key === 'isFeatured' ? 'is_featured' : key === 'createdAt' ? 'created_at' : key} ${direction === 1 ? 'ASC' : 'DESC'}`);
     sql += ` ORDER BY ${sortEntries.join(', ')}`;
     if (req.query.limit) {
-        sql += ` LIMIT ${Number.parseInt(req.query.limit, 10)}`;
+        const parsedLimit = Number.parseInt(req.query.limit, 10);
+
+        if (Number.isFinite(parsedLimit) && parsedLimit > 0) {
+            sql += ` LIMIT $${values.length + 1}`;
+            values.push(parsedLimit);
+        }
     }
     const result = await query(sql, values);
     const products = result.rows.map(mapProduct);
