@@ -114,11 +114,11 @@ Frontend runs at: `http://localhost:5173`
 
 ---
 
-## 🔑 Demo Login Credentials
+## 🔑 Admin Credentials
 
-| Role  | Email | Password |
-|-------|-------|----------|
-| Admin | admin@fitsense.com | Admin@1234 |
+Admin credentials must be configured locally by running the database seeder on your own machine — they are not documented in this repository.
+
+> ⚠️ Never use default or demo credentials on a deployed instance. Always set a unique, strong admin password before exposing the application publicly.
 
 ---
 
