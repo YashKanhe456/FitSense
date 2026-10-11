@@ -1,4 +1,4 @@
-# FitSense 🏋️
+# FitSense 
 
 A full-stack clothing e-commerce web application built with React (Vite) + Node.js (Express) + PostgreSQL (NeonDB).
 
